@@ -1,0 +1,268 @@
+/* We'll use different settings for some font sizes, so define that, see:
+ * https://google.github.io/material-design-icons/#styling-icons-in-material-design
+ */
+ .material-icons.md-13 { font-size: 13px; }
+ .material-icons.md-18 { font-size: 18px; }
+
+html, body {
+  /* If we don't have a lot of content, make sure we stretch to the bottom */
+  height: 100%;
+  /* Don't let the page scroll */
+  overflow: hidden;
+}
+
+body {
+  /* Set the default colour inside the header (for icons) to a dark gray
+   * see https://www.rapidtables.com/web/css/css-color.html#gray
+   */
+  color: dimgray;
+  /* Use a more blocky, sans serif font */
+  font-family: Roboto, sans-serif;
+  /* Get rid of the margin around the body */
+  margin: 0;
+}
+
+
+header {
+  /* Add some margin to the header itself */
+  margin-left: 0;
+  margin-right: 15px;
+  margin-top: 15px;
+  display: flex;
+  /* See https://css-tricks.com/almanac/properties/j/justify-content/ */
+  justify-content: space-between;
+}
+
+#menu {
+  /* Make this match with the nav content below (width, centered)
+   * less the margin of the parent (15px)
+   */
+  width: 75px;
+  text-align: center;
+}
+
+#search-wrapper {
+  /* Let this section of the header grow/shrink with available space */
+  flex: 1;
+  /* Also use Flexbox to align the child search box and button */
+  display: flex;
+  /* Place the items in the centre of this parent */
+  justify-content: center;
+}
+
+#search-wrapper input {
+  /* Let the input box grow/shrink with available space */
+  flex: 1;
+  /* However, don't let it get larger than 500px wide */
+  max-width: 500px;
+  /* Change its height from the default */
+  height: 27px;
+  /* Push this down to the bottom of the parent so it matches with button */
+  vertical-align: bottom;
+  /* Reduce the size of the border around the outside */
+  border: 1px solid lightgray;
+  /* Set the font color to black inside the input */
+  color: black;
+  /* Alter the font size a bit */
+  font-size: 1em;
+  /* Add some extra whitespace on the left */
+  padding-left: 10px;
+}
+
+#search-wrapper button {
+  /* Make this button match the size of our input box */
+  height: 31px;
+  /* Get rid of the space between this button and the input box on the left */
+  margin-left: -6px;
+  /* Add extra white space inside the button on left/right */
+  padding-left: 20px;
+  padding-right: 20px;
+  /* Get rid of the rounded corners */
+  border-radius: 0;
+  /* Reduce the size of the border around the outside */
+  border: 1px solid lightgray;
+  /* Use the same dark gray for the icon color on search */
+  color: dimgray;
+}
+
+
+#sign-in {
+  /* Use a blue and white color scheme: https://html-color.codes/blue */
+  color: #0070ff;
+  border: 1px solid #0070ff;
+  background-color: white;
+  /* Add extra whitespace around the inside, with more on the left/right */
+  padding: 6px 15px;
+  /* Alter the font weight (how bold it is) a bit */
+  font-weight: 600;
+}
+
+#sign-in i {
+  /* Make the SIGN IN text align with the middle of the inner space vertically */
+  vertical-align: middle;
+}
+
+
+
+#user-options {
+  /* Use flexbox to evenly distribute space around the user option buttons */
+  display: flex;
+  /* space all of them evenly horizontally, see https://css-tricks.com/almanac/properties/j/justify-content/ */
+  justify-content: space-evenly;
+  /* align the items in the centre vertically */
+  align-items: center;
+}
+
+/* Target the <i> elements that are direct children of #user-options
+ * so we don't touch the <i> inside the sign in button
+ */
+#user-options > i {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+
+/**
+ * Main area
+ */
+main {
+  /* Use Flexbox to layout the two columns in our main area, and fill the page height */
+  display: flex;
+  height: 100%;
+}
+
+main section {
+  /* Stretch this all the way to the right, within its parent */
+  flex: 1;
+  /* Really subtle gray background */
+  background-color: #f7f7f7;
+  /* Add some whitespace inside this section */
+  padding: 20px;
+  /* Push this down from the header above */
+  margin-top: 10px;
+  /* Get rid of the right-hand margin */
+  margin-right: 0;
+  /* Fill the entire vertical space in the parent */
+  height: 100%;
+  /* Allow this section to scroll */
+  overflow: auto;
+}
+
+/**
+ * Left-hand Icon Menu
+ */
+nav {
+  /* Use a fixed width on the left-hand nav area */
+  width: 75px;
+}
+
+main nav div {
+  /* Centre the text in these divs */
+  text-align: center;
+  /* Reduce the font size */
+  font-size: 10px;
+  /* Add more space above/below each one */
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+main nav div p {
+  /* Reduce the amount of space between the icon and text */
+  margin: 5px;
+}
+
+main section {
+  /* Fill the available height */
+  height: 100%;
+}
+
+#content {
+  /* We cap our main content so it doesn't go all the way to the edge */
+  max-width: 650px;
+  /* YouTube does "infinite scroll" loading more videos, but we'll add some empty space */
+  padding-bottom: 100px;
+}
+
+#filter {
+  /* Set the font size and put a line below the text */
+  font-size: 14px;
+  border-bottom: 1px solid lightgray;
+  /* Add some extra space between the text and the border line */
+  padding-bottom: 10px;
+  /* Get rid of the extra margin at the top */
+  margin-top: 0;
+}
+
+#filter i {
+  /* Have the icon align properly with the text beside it */
+  vertical-align: middle;
+}
+
+
+/**
+ * Video "Cards" with poster image, title, and details
+ */
+
+.video-card-wrapper {
+  /* Use Flexbox for the contents of the card */
+  display: flex;
+  /* However, fix the height */
+  height: 137px;
+  /* Add some room between each card */
+  margin-bottom: 18px;
+}
+
+.video-card-image {
+  /* We want to absolutely position text over the image, so use relative positioning */
+  position: relative;
+}
+
+.video-card-image p {
+  /* Take advantage of the parent's relative positioning, and place this text bottom-right */
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  /* Place this element above the image, so it floats on top */
+  z-index: 100;
+
+  /* Drop the extra margins around the p, but add some padding */
+  margin: 0;
+  padding: 1px 2px;
+  /* Remove the sharp edge to the corners by rounding slightly */
+  border-radius: 2px;
+
+  /* Set the colours: white on black */
+  color: white;
+  background-color: black;
+
+  /* Smaller font size */
+  font-size: 11px;
+}
+
+.video-card-info {
+  /* We want this part to grow/shrink with the window size */
+  flex: 1;
+  /* Put some space to the left, between the image and this text */
+  margin-left: 10px;
+}
+
+.video-card-info h2 {
+  /* Black text, larger size */
+  color: black;
+  font-size: 1.2em;
+  /* Get rid of default margins */
+  margin: 0;
+}
+
+.video-card-info h3 {
+  /* Smaller font size */
+  font-size: .8em;
+  /* Remove default margins, but add some at the top */
+  margin: 0;
+  margin-top: 3px;
+}
+
+.video-card-info p {
+  /* Smaller font size */
+  font-size: .8em;
+}
